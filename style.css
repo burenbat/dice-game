@@ -23,6 +23,7 @@ body {
     position: relative;
     height: 100vh;
     color: #555;
+    font-family: system-ui;
 }
 
 .wrapper {
@@ -110,7 +111,7 @@ button {
     color: #555;
     background: none;
     border: none;
-    font-family: Lato;
+    font-family: cursive;
     font-size: 20px;
     text-transform: uppercase;
     cursor: pointer;
