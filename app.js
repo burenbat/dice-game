@@ -1,23 +1,51 @@
+//******************  Тоглоомын бүх газарт ашиглагдах глобаль хувьсагдыг энд зарлая *******************/
 // Тоглогчийн ээлжийг хадгалах хувьсагч, нэгдүгээр тоглогчийг 0, хоёрдугаар тоглогчийг 1 гэж тэмдэглэе.
-var activePlayer = 0;
+var activePlayer;
 
-// Тоглогчдын цуглуулсан оноог хадгалах хувьсагч
-var scores = [0, 0];
+// Хоёр тоглогчийн цуглуулсан оноонууд
+var scores;
 
 // Тоглогчийн ээлжиндээ цуглуулж байгаа оноог хадгалах хувьсагч
-var roundScore = 0;
+var roundScore;
 
-// Шооны аль талаараа буусныг хадгалах хувьсагч хэрэгтэй, 1-6 гэсэн утгыг энэ хувьсагчид санамсаргүйгээр үүсгэж өгнө.
-var dice = Math.floor(Math.random() * 6) + 1;
-
-// Програм эхлэхэд бэлтгэе
-document.getElementById("score-0").textContent = '0';
-document.getElementById("score-1").textContent = '0';
-document.getElementById("current-0").textContent = '0';
-document.getElementById("current-1").textContent = '0';
-
+// Шооны зургийг үзүүлэх элементийг DOM-оос хайж олоод энд хадгалья
 var diceDom = document.querySelector(".dice");
-diceDom.style.display = "none";
+
+
+//Тоглоомыг эхлүүллээ
+initGame();
+
+// Тоглоомыг шинээр эхлэхэд бэлтгэнэ.
+function initGame(){
+    
+    activePlayer = 0;
+    // Тоглогчдын цуглуулсан оноог хадгалах хувьсагч
+    scores = [0, 0];
+
+    // Тоглогчийн ээлжиндээ цуглуулж байгаа оноог хадгалах хувьсагч
+    roundScore = 0;
+
+    // Програм эхлэхэд бэлтгэе
+    document.getElementById("score-0").textContent = '0';
+    document.getElementById("score-1").textContent = '0';
+    document.getElementById("current-0").textContent = '0';
+    document.getElementById("current-1").textContent = '0';
+
+    // Тоглогчдын нэрийг буцааж гаргах
+    document.getElementById('name-0').textContent = "Player 1";
+    document.getElementById('name-1').textContent = "Player 2";
+
+    document.querySelector('.player-0-panel').classList.remove('winner');
+    document.querySelector('.player-1-panel').classList.remove('winner');
+
+    document.querySelector('.player-0-panel').classList.remove('active');
+    document.querySelector('.player-1-panel').classList.remove('active');
+
+    document.querySelector('.player-0-panel').classList.add('active');
+
+    diceDom.style.display = "none";
+}
+
 
 // Шоог шидэх эвэнт листенер
 document.querySelector(".btn-roll").addEventListener("click", function (){
@@ -92,7 +120,7 @@ function switchToNextPlayer(){
     diceDom.style.display = "none";
 }
 
-//Шинэ тоглоом эхлүүлэх товчны эвент листенер
-document.querySelector('.btn-new').addEventListener('click', function(){
-    
-});
+//New Game буюу Шинэ тоглоом эхлүүлэх товчны эвент листенер
+document.querySelector('.btn-new').addEventListener('click', initGame);
+
+
