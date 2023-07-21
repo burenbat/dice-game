@@ -58,7 +58,7 @@ document.querySelector(".btn-roll").addEventListener("click", function (){
     if(isNewGame){
         
         //Дуу оруулах
-        var audio = new Audio("dice.mp3");
+        var audio = new Audio("https://cdn.pixabay.com/download/audio/2022/03/10/audio_eb469f9755.mp3?filename=gamemisc_dice-roll-on-wood_jaku5-37414.mp3");
         audio.play();
 
         // 1 - 6 доторх санамсаргүй нэг гоо гаргаж авна
