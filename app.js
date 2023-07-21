@@ -15,7 +15,6 @@ var roundScore;
 // Шооны зургийг үзүүлэх элементийг DOM-оос хайж олоод энд хадгалья
 var diceDom = document.querySelector(".dice");
 
-
 //Тоглоомыг эхлүүллээ
 initGame();
 
@@ -57,6 +56,10 @@ function initGame(){
 document.querySelector(".btn-roll").addEventListener("click", function (){
 
     if(isNewGame){
+        
+        //Дуу оруулах
+        var audio = new Audio("dice.mp3");
+        audio.play();
 
         // 1 - 6 доторх санамсаргүй нэг гоо гаргаж авна
         var diceNumber = Math.floor(Math.random() * 6) + 1;
